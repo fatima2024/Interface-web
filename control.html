@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro Factory Control Center</title>
+  <link rel="stylesheet" href="control.css" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="control-page">
+    <div class="control-header">
+      <div>
+        <h1>Control Center</h1>
+        <p>Command, monitor and secure production equipment in real time.</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Active Commands</p>
+            <h3 class="kpi-value">14</h3>
+            <p class="kpi-subtitle">Issued in the last hour</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="cpu"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Remote Sessions</p>
+            <h3 class="kpi-value">03</h3>
+            <p class="kpi-subtitle">Supervisors currently connected</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Safety Locks</p>
+            <h3 class="kpi-value">02</h3>
+            <p class="kpi-subtitle">Assets under restricted access</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Avg Response Time</p>
+            <h3 class="kpi-value">142 ms</h3>
+            <p class="kpi-subtitle">Control network latency</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="activity"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>Machine Control</h2>
+          <p>Direct supervision and command state by production unit.</p>
+        </div>
+
+        <div class="machine-list">
+          <div class="machine-item">
+            <div class="machine-main">
+              <div>
+                <div class="machine-title-row">
+                  <h3>Assembly Line A</h3>
+                  <span class="status-badge running">Running</span>
+                </div>
+                <p class="muted">Mode: Auto</p>
+              </div>
+
+              <div class="machine-stats">
+                <div class="stat-box">
+                  <span class="stat-label">Mode</span>
+                  <strong>Auto</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Speed</span>
+                  <strong>82%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Safety</span>
+                  <strong>Healthy</strong>
+                </div>
+                <div class="stat-box action-box">
+                  <span class="stat-label">Actions</span>
+                  <div class="action-buttons">
+                    <button class="start-btn">Start</button>
+                    <button class="stop-btn">Stop</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="machine-item">
+            <div class="machine-main">
+              <div>
+                <div class="machine-title-row">
+                  <h3>3D Printing Cell</h3>
+                  <span class="status-badge warning">Warning</span>
+                </div>
+                <p class="muted">Mode: Manual</p>
+              </div>
+
+              <div class="machine-stats">
+                <div class="stat-box">
+                  <span class="stat-label">Mode</span>
+                  <strong>Manual</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Speed</span>
+                  <strong>0%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Safety</span>
+                  <strong>Warning</strong>
+                </div>
+                <div class="stat-box action-box">
+                  <span class="stat-label">Actions</span>
+                  <div class="action-buttons">
+                    <button class="start-btn">Start</button>
+                    <button class="stop-btn">Stop</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="machine-item">
+            <div class="machine-main">
+              <div>
+                <div class="machine-title-row">
+                  <h3>Packaging Unit</h3>
+                  <span class="status-badge stopped">Stopped</span>
+                </div>
+                <p class="muted">Mode: Maintenance</p>
+              </div>
+
+              <div class="machine-stats">
+                <div class="stat-box">
+                  <span class="stat-label">Mode</span>
+                  <strong>Maintenance</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Speed</span>
+                  <strong>0%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Safety</span>
+                  <strong>Critical</strong>
+                </div>
+                <div class="stat-box action-box">
+                  <span class="stat-label">Actions</span>
+                  <div class="action-buttons">
+                    <button class="start-btn">Start</button>
+                    <button class="stop-btn">Stop</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="machine-item">
+            <div class="machine-main">
+              <div>
+                <div class="machine-title-row">
+                  <h3>Quality Control</h3>
+                  <span class="status-badge running">Running</span>
+                </div>
+                <p class="muted">Mode: Auto</p>
+              </div>
+
+              <div class="machine-stats">
+                <div class="stat-box">
+                  <span class="stat-label">Mode</span>
+                  <strong>Auto</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Speed</span>
+                  <strong>74%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Safety</span>
+                  <strong>Healthy</strong>
+                </div>
+                <div class="stat-box action-box">
+                  <span class="stat-label">Actions</span>
+                  <div class="action-buttons">
+                    <button class="start-btn">Start</button>
+                    <button class="stop-btn">Stop</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Command Queue</h2>
+          <p>Execution flow for the active production sequence.</p>
+        </div>
+
+        <div class="queue-list">
+          <div class="queue-item">
+            <span>Load production recipe</span>
+            <span class="status-badge healthy">Completed</span>
+          </div>
+          <div class="queue-item">
+            <span>Verify sensor calibration</span>
+            <span class="status-badge healthy">Completed</span>
+          </div>
+          <div class="queue-item">
+            <span>Start conveyor sync</span>
+            <span class="status-badge info">In Progress</span>
+          </div>
+          <div class="queue-item">
+            <span>Enable packaging motor</span>
+            <span class="status-badge warning">Pending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>Control Signals</h2>
+          <p>Recent command feedback and device acknowledgement.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="controlSignalsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Emergency Actions</h2>
+          <p>Critical controls protected by operator validation.</p>
+        </div>
+
+        <div class="emergency-actions">
+          <button class="danger-action">Pause All Lines</button>
+          <button class="secondary-action">Switch to Manual Mode</button>
+          <button class="secondary-action">Run Safety Check</button>
+          <button class="secondary-action">Reset Alarm State</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="control.js"></script>
+</body>
+</html>

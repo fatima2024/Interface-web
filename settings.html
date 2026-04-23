@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro Factory Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="settings-page">
+    <div class="settings-header">
+      <div>
+        <h1>Settings</h1>
+        <p>Manage platform preferences, alerting, security and operator configuration.</p>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-top">
+          <div>
+            <h3>General Settings</h3>
+            <p>Factory name, region and environment preferences</p>
+          </div>
+          <div class="info-icon">
+            <i data-lucide="settings"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-top">
+          <div>
+            <h3>Security</h3>
+            <p>Access control and protected actions</p>
+          </div>
+          <div class="info-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-top">
+          <div>
+            <h3>Notifications</h3>
+            <p>Alarm and reporting channels</p>
+          </div>
+          <div class="info-icon">
+            <i data-lucide="bell"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-top">
+          <div>
+            <h3>Users & Roles</h3>
+            <p>Operator privileges and team access</p>
+          </div>
+          <div class="info-icon">
+            <i data-lucide="users"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>General Configuration</h2>
+          <p>Update core site settings and default operating preferences.</p>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="factoryName">Factory name</label>
+            <input id="factoryName" type="text" value="Micro-Factory Site A" />
+          </div>
+
+          <div class="form-group">
+            <label for="timezone">Timezone</label>
+            <select id="timezone">
+              <option value="europe-paris" selected>Europe/Paris</option>
+              <option value="utc">UTC</option>
+              <option value="america-newyork">America/New_York</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="operationsNote">Operations note</label>
+          <textarea id="operationsNote" rows="6">Primary site configured for batch manufacturing, live telemetry enabled and operator-level access active.</textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Display Preferences</h2>
+          <p>Customize operator console behavior.</p>
+        </div>
+
+        <div class="switch-list">
+          <div class="switch-item">
+            <div>
+              <h4>Dark mode</h4>
+              <p>Enable darker operator UI</p>
+            </div>
+            <label class="switch">
+              <input id="darkMode" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-item">
+            <div>
+              <h4>Manual approval</h4>
+              <p>Protect critical actions with validation</p>
+            </div>
+            <label class="switch">
+              <input id="manualApproval" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card">
+        <div class="card-header">
+          <h2>Notification Rules</h2>
+          <p>Manage alarms, operational notices and reporting.</p>
+        </div>
+
+        <div class="switch-list">
+          <div class="switch-item">
+            <div>
+              <h4>Real-time alerts</h4>
+              <p>Send live system and machine alerts</p>
+            </div>
+            <label class="switch">
+              <input id="alertsEnabled" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="switch-item">
+            <div>
+              <h4>Email reports</h4>
+              <p>Share production summaries daily</p>
+            </div>
+            <label class="switch">
+              <input id="emailReports" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Access Policies</h2>
+          <p>Operator permissions and security controls.</p>
+        </div>
+
+        <div class="policy-box">
+          <h4>Current role model</h4>
+          <p>Admin, Supervisor, Operator, Viewer</p>
+        </div>
+
+        <div class="policy-box">
+          <h4>Protected actions</h4>
+          <p>Shutdown, reset alarm, mode switch, manual override</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Quick Actions</h2>
+          <p>Apply and save configuration changes.</p>
+        </div>
+
+        <div class="action-list">
+          <button id="saveBtn" class="primary-btn">
+            <i data-lucide="save"></i>
+            Save changes
+          </button>
+
+          <button id="resetBtn" class="secondary-btn">
+            <i data-lucide="sliders-horizontal"></i>
+            Reset defaults
+          </button>
+
+          <button id="auditBtn" class="secondary-btn">
+            Review audit trail
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="messageBox" class="message-box hidden"></div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro Factory Dashboard</title>
+  <link rel="stylesheet" href="DashboardPage.css" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-page">
+    <div class="dashboard-header">
+      <div>
+        <h1>Factory Overview</h1>
+        <p>Real-time operations, maintenance and production visibility.</p>
+      </div>
+
+      <div class="dashboard-actions">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" placeholder="Search line, asset, order..." />
+        </div>
+
+        <select class="period-select">
+          <option>Daily</option>
+          <option selected>Weekly</option>
+          <option>Monthly</option>
+        </select>
+
+        <button class="filter-btn">
+          <i data-lucide="filter"></i>
+          Filters
+        </button>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Production Output</p>
+            <h3 class="kpi-value">563</h3>
+            <p class="kpi-subtitle">Units produced this week</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="package"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Machine Availability</p>
+            <h3 class="kpi-value">97.1%</h3>
+            <p class="kpi-subtitle">Average uptime across assets</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="clock-3"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Energy Consumption</p>
+            <h3 class="kpi-value">1.28 MWh</h3>
+            <p class="kpi-subtitle">Current period total</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="zap"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-card-top">
+          <div>
+            <p class="kpi-title">Open Alerts</p>
+            <h3 class="kpi-value">07</h3>
+            <p class="kpi-subtitle">1 critical requiring action</p>
+          </div>
+          <div class="kpi-icon">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>Production vs Target</h2>
+          <p>Weekly output trend across the micro-factory.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="productionChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Energy by Area</h2>
+          <p>Consumption split by production zone.</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="energyChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>Production Lines</h2>
+          <p>Operational status of critical assets and cells.</p>
+        </div>
+
+        <div class="line-list">
+          <div class="line-item">
+            <div class="line-main">
+              <div>
+                <div class="line-title-row">
+                  <h3>Assembly Line A</h3>
+                  <span class="status-badge running">Running</span>
+                </div>
+                <p class="muted">Asset ID: LN-01</p>
+              </div>
+
+              <div class="line-stats">
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="activity"></i> Efficiency</span>
+                  <strong>96%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="thermometer"></i> Temp</span>
+                  <strong>36°C</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="clock-3"></i> Uptime</span>
+                  <strong>99.2%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="line-item">
+            <div class="line-main">
+              <div>
+                <div class="line-title-row">
+                  <h3>3D Printing Cell</h3>
+                  <span class="status-badge warning">Warning</span>
+                </div>
+                <p class="muted">Asset ID: LN-02</p>
+              </div>
+
+              <div class="line-stats">
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="activity"></i> Efficiency</span>
+                  <strong>81%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="thermometer"></i> Temp</span>
+                  <strong>44°C</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="clock-3"></i> Uptime</span>
+                  <strong>95.8%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="line-item">
+            <div class="line-main">
+              <div>
+                <div class="line-title-row">
+                  <h3>Packaging Unit</h3>
+                  <span class="status-badge stopped">Stopped</span>
+                </div>
+                <p class="muted">Asset ID: LN-03</p>
+              </div>
+
+              <div class="line-stats">
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="activity"></i> Efficiency</span>
+                  <strong>0%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="thermometer"></i> Temp</span>
+                  <strong>--</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="clock-3"></i> Uptime</span>
+                  <strong>88.1%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="line-item">
+            <div class="line-main">
+              <div>
+                <div class="line-title-row">
+                  <h3>Quality Control</h3>
+                  <span class="status-badge running">Running</span>
+                </div>
+                <p class="muted">Asset ID: LN-04</p>
+              </div>
+
+              <div class="line-stats">
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="activity"></i> Efficiency</span>
+                  <strong>91%</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="thermometer"></i> Temp</span>
+                  <strong>31°C</strong>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label"><i data-lucide="clock-3"></i> Uptime</span>
+                  <strong>97.5%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Live Alerts</h2>
+          <p>Latest operational and maintenance notifications.</p>
+        </div>
+
+        <div class="alert-list">
+          <div class="alert-item">
+            <div class="alert-top">
+              <div>
+                <div class="line-title-row">
+                  <h3>Packaging Unit halted</h3>
+                  <span class="status-badge critical">Critical</span>
+                </div>
+                <p class="muted">Motor overload detected on conveyor section B.</p>
+              </div>
+              <i data-lucide="bell" class="icon-muted"></i>
+            </div>
+            <p class="alert-time">2 min ago</p>
+          </div>
+
+          <div class="alert-item">
+            <div class="alert-top">
+              <div>
+                <div class="line-title-row">
+                  <h3>Temperature spike on 3D Printing Cell</h3>
+                  <span class="status-badge warning">Warning</span>
+                </div>
+                <p class="muted">Nozzle chamber exceeded nominal threshold.</p>
+              </div>
+              <i data-lucide="bell" class="icon-muted"></i>
+            </div>
+            <p class="alert-time">18 min ago</p>
+          </div>
+
+          <div class="alert-item">
+            <div class="alert-top">
+              <div>
+                <div class="line-title-row">
+                  <h3>Preventive maintenance due</h3>
+                  <span class="status-badge info">Info</span>
+                </div>
+                <p class="muted">Assembly Line A scheduled check in 6 hours.</p>
+              </div>
+              <i data-lucide="bell" class="icon-muted"></i>
+            </div>
+            <p class="alert-time">1 hour ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card large-card">
+        <div class="card-header">
+          <h2>Inventory Snapshot</h2>
+          <p>Materials and parts availability for current operations.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="inventory-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Stock</th>
+                <th>Unit</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ABS Filament</td>
+                <td>420</td>
+                <td>kg</td>
+                <td><span class="status-badge healthy">Healthy</span></td>
+              </tr>
+              <tr>
+                <td>Circuit Boards</td>
+                <td>140</td>
+                <td>pcs</td>
+                <td><span class="status-badge low">Low</span></td>
+              </tr>
+              <tr>
+                <td>Aluminum Frames</td>
+                <td>260</td>
+                <td>pcs</td>
+                <td><span class="status-badge healthy">Healthy</span></td>
+              </tr>
+              <tr>
+                <td>Sensors</td>
+                <td>42</td>
+                <td>pcs</td>
+                <td><span class="status-badge critical">Critical</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Quality Summary</h2>
+          <p>Inspection and defect monitoring.</p>
+        </div>
+
+        <div class="quality-box success-box">
+          <div class="quality-title">
+            <i data-lucide="check-circle-2"></i>
+            Passed inspections
+          </div>
+          <h3>1,248</h3>
+        </div>
+
+        <div class="quality-box danger-box">
+          <div class="quality-title">
+            <i data-lucide="x-circle"></i>
+            Defects detected
+          </div>
+          <h3>18</h3>
+        </div>
+
+        <div class="mini-chart-box">
+          <canvas id="qualityChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

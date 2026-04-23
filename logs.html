@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro Factory Logs</title>
+  <link rel="stylesheet" href="logs.css" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="logs-page">
+    <div class="logs-header">
+      <div>
+        <h1>System Logs</h1>
+        <p>Track events, anomalies, security activity and operational history.</p>
+      </div>
+
+      <div class="logs-actions">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input id="searchInput" type="text" placeholder="Search logs, source or message..." />
+        </div>
+
+        <select id="levelFilter" class="level-select">
+          <option value="all">All levels</option>
+          <option value="info">Info</option>
+          <option value="warning">Warning</option>
+          <option value="critical">Critical</option>
+        </select>
+
+        <button class="action-btn secondary-btn">
+          <i data-lucide="filter"></i>
+          Advanced filter
+        </button>
+
+        <button id="exportBtn" class="action-btn primary-btn">
+          <i data-lucide="download"></i>
+          Export
+        </button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <div>
+            <p class="stat-title">Total Events</p>
+            <h3 class="stat-value">1,284</h3>
+          </div>
+          <div class="stat-icon">
+            <i data-lucide="server"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <div>
+            <p class="stat-title">Critical Alerts</p>
+            <h3 class="stat-value">12</h3>
+          </div>
+          <div class="stat-icon">
+            <i data-lucide="shield-alert"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <div>
+            <p class="stat-title">Telemetry Events</p>
+            <h3 class="stat-value">426</h3>
+          </div>
+          <div class="stat-icon">
+            <i data-lucide="cpu"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <div>
+            <p class="stat-title">Last Sync</p>
+            <h3 class="stat-value">09:26</h3>
+          </div>
+          <div class="stat-icon">
+            <i data-lucide="clock-3"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logs-card">
+      <div class="card-header">
+        <h2>Event Stream</h2>
+        <p>Chronological trace of platform, device and security events.</p>
+      </div>
+
+      <div id="logsContainer" class="logs-list"></div>
+    </div>
+  </div>
+
+  <script src="logs.js"></script>
+</body>
+</html>

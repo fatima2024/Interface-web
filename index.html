@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro-Usine - Accueil</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <i data-lucide="factory"></i>
+          </div>
+          <div>
+            <h2>Micro-Usine</h2>
+            <p>Système de pilotage</p>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <a href="dashboard.html" class="menu-item">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="control.html" class="menu-item">
+            <i data-lucide="gamepad-2"></i>
+            <span>Contrôle</span>
+          </a>
+
+          <a href="logs.html" class="menu-item">
+            <i data-lucide="file-text"></i>
+            <span>Logs</span>
+          </a>
+
+          <a href="settings.html" class="menu-item">
+            <i data-lucide="settings"></i>
+            <span>Paramètres</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <span>API Connectée</span>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Accueil</h1>
+          <p>Bienvenue sur l’interface de supervision de la micro-usine.</p>
+        </div>
+      </header>
+
+      <section class="welcome-card">
+        <div class="welcome-text">
+          <h2>Centre de supervision</h2>
+          <p>
+            Cette interface vous permet de superviser le système, consulter les
+            données capteurs, contrôler les équipements, suivre les logs et gérer
+            les paramètres de connexion.
+          </p>
+        </div>
+      </section>
+
+      <section class="cards-grid">
+        <a href="dashboard.html" class="nav-card">
+          <div class="nav-card-icon">
+            <i data-lucide="layout-dashboard"></i>
+          </div>
+          <h3>Dashboard</h3>
+          <p>
+            Voir l’état du système, les positions, les capteurs et les alertes.
+          </p>
+        </a>
+
+        <a href="control.html" class="nav-card">
+          <div class="nav-card-icon">
+            <i data-lucide="gamepad-2"></i>
+          </div>
+          <h3>Contrôle</h3>
+          <p>
+            Piloter le système, envoyer des commandes et surveiller les actions.
+          </p>
+        </a>
+
+        <a href="logs.html" class="nav-card">
+          <div class="nav-card-icon">
+            <i data-lucide="file-text"></i>
+          </div>
+          <h3>Logs</h3>
+          <p>
+            Consulter l’historique horodaté, les événements et les erreurs.
+          </p>
+        </a>
+
+        <a href="settings.html" class="nav-card">
+          <div class="nav-card-icon">
+            <i data-lucide="settings"></i>
+          </div>
+          <h3>Paramètres</h3>
+          <p>
+            Configurer l’API, la connexion, les préférences et les options système.
+          </p>
+        </a>
+      </section>
+
+      <section class="quick-info-grid">
+        <div class="info-box">
+          <h4>État du système</h4>
+          <p class="info-value online">En ligne</p>
+        </div>
+
+        <div class="info-box">
+          <h4>Dernière synchronisation</h4>
+          <p class="info-value">09:26</p>
+        </div>
+
+        <div class="info-box">
+          <h4>Dernière erreur</h4>
+          <p class="info-value">Aucune critique</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
